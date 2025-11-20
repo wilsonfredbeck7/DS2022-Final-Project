@@ -1,0 +1,72 @@
+import os
+import pandas as pd
+from flask import Flask, jsonify, request
+
+app = Flask(__name__)
+
+# Load dataset at startup
+BASE_DIR = os.path.dirname(__file__)  # path to src/
+CSV_PATH = os.path.join(BASE_DIR, "../assets/Spotify-2000.csv")
+DF = pd.read_csv(CSV_PATH)
+
+
+@app.route("/")
+def home():
+    return jsonify({
+        "routes": ["/health", "/tracks", "/summary", "/top-energy", "/search"],
+        "note": "Use /tracks?limit=N to get the first N tracks, /search?q=name to search."
+    })
+
+
+@app.get("/health")
+def health():
+    return {"status": "ok"}, 200
+
+
+@app.get("/tracks")
+def tracks():
+    """Return all tracks or first N using ?limit=."""
+    limit = int(request.args.get("limit", 100))
+    data = DF.head(limit).to_dict(orient="records")
+    return jsonify(data)
+
+
+@app.get("/summary")
+def summary():
+    """Return summary stats for key columns."""
+    try:
+        return {
+            "avg_danceability": float(DF["Danceability"].mean()),
+            "avg_energy": float(DF["Energy"].mean()),
+            "avg_acousticness": float(DF["Acousticness"].mean()),
+            "avg_popularity": float(DF["Popularity"].mean()),
+        }
+    except KeyError as e:
+        return {"error": f"Missing column in CSV: {e}"}, 500
+
+
+@app.get("/top-energy")
+def top_energy():
+    """Return top 20 highest-energy tracks."""
+    top = DF.nlargest(20, "Energy")
+    return jsonify(top.to_dict(orient="records"))
+
+
+@app.get("/search")
+def search():
+    """Search by track or artist name."""
+    q = request.args.get("q", "").strip().lower()  
+    if not q:
+        return jsonify([])  
+
+    results = DF[
+        DF['Title'].str.lower().str.contains(q) |
+        DF['Artist'].str.lower().str.contains(q)
+    ]
+
+    return jsonify(results.head(50).to_dict(orient="records"))
+
+
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=8080, debug=True)
