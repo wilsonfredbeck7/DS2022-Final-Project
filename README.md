@@ -16,8 +16,9 @@
 - Containerization using Docker  
 - Endpoint testing / smoke tests
 
-**Architecture Diagram:**  
-![Architecture](assets/architecture.png)  
+## Architecture Diagram
+
+![Architecture Diagram](assets/Final-Project-Diagram.png) 
 - Browser or curl → Flask API (`app.py`) → Pandas on CSV data → JSON response
 
 **Data/Models/Services:**  
