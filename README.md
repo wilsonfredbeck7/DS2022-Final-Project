@@ -1,36 +1,43 @@
-# DS2022 Final Project: Spotify Data API
+# Spotify 2000s Track Explorer API
 
 ## 1) Executive Summary
 
-**Problem:** Quickly exploring and analyzing Spotify track data for the 2000s can be tedious using raw CSV files. Users want an easy API to browse, summarize, and search tracks.
+**Problem:**  
+Exploring raw CSV datasets of Spotify tracks from the 2000s is tedious and inefficient for music analysts or hobbyists. Users must manually filter, sort, and compute statistics, which can be error-prone and time-consuming.
 
-**Solution:** A Flask-based API that exposes multiple endpoints for exploring Spotify data, including track lists, summary statistics, top-energy tracks, and search by title/artist. The app is fully containerized with Docker for reproducible deployment.
+**Solution:**  
+This project provides a **Flask-based API** that exposes endpoints to query, filter, and analyze Spotify track data programmatically. Users can retrieve top-energy tracks, search by artist or title, and obtain summary statistics through simple HTTP requests. The API is containerized with Docker for easy deployment and reproducibility.
 
 ---
 
 ## 2) System Overview
 
-**Course Concept(s):**  
-- Flask API development  
-- Data analysis with Pandas  
-- Containerization using Docker  
-- Endpoint testing / smoke tests
+**Course Concept(s) Used:**  
+- **Flask API**: Built REST endpoints to interact with tabular data.  
+- **Pandas**: Data processing and aggregation from CSV files.  
 
-## Architecture Diagram
-
-![Architecture Diagram](assets/Final-Project-Diagram.png) 
-- Browser or curl → Flask API (`app.py`) → Pandas on CSV data → JSON response
+**Architecture Diagram:**  
+Include PNG diagram in `/assets` and embed here:  
+![Architecture Diagram](./assets/Final-Project-Diagram.png)
 
 **Data/Models/Services:**  
-- Dataset: `Spotify-2000.csv`  
-- Format: CSV, ~1k tracks  
-- Columns include Title, Artist, Genre, BPM, Energy, Danceability, Acousticness, Popularity  
-- License: Public dataset (attribute as needed)
+| Component | Source | Size | Format | License |
+|-----------|--------|------|--------|---------|
+| Spotify 2000s Track Dataset | Provided CSV (`Spotify-2000.csv`) | ~1k tracks | CSV | Personal dataset copy (no external license) |
 
 ---
 
-## 3) How to Run (Local / Docker)
+## 3) How to Run (Local)
 
-**Build the Docker image:**
+### Docker
+
 ```bash
+# Build Docker image
 docker build -t spotify-api:latest .
+
+# Run container
+docker run --rm -p 5000:5000 --env-file .env.example spotify-api:latest
+
+# Test API health
+curl http://localhost:5000/health
+
