@@ -23,7 +23,7 @@ Include PNG diagram in `/assets` and embed here:
 **Data/Models/Services:**  
 | Component | Source | Size | Format | License |
 |-----------|--------|------|--------|---------|
-| Spotify 2000s Track Dataset | Provided CSV (`Spotify-2000.csv`) | ~1k tracks | CSV | Personal dataset copy (no external license) |
+| Spotify 2000s Track Dataset | Kaggle: [Spotify Top 2000s Mega Dataset](https://www.kaggle.com/datasets/iamsumat/spotify-top-2000s-mega-dataset) | ~1k tracks | CSV | Kaggle license |
 
 ---
 
