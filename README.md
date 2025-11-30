@@ -17,7 +17,7 @@ This project provides a **Flask-based API** that exposes endpoints to query, fil
 - **Pandas**: Data processing and aggregation from CSV files.  
 
 **Architecture Diagram:**  
-Include PNG diagram in `/assets` and embed here:  
+ 
 ![Architecture Diagram](./assets/Final-Project-Diagram.png)
 
 **Project Structure**
