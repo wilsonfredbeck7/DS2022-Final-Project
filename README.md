@@ -20,6 +20,27 @@ This project provides a **Flask-based API** that exposes endpoints to query, fil
 Include PNG diagram in `/assets` and embed here:  
 ![Architecture Diagram](./assets/Final-Project-Diagram.png)
 
+**Folder tree**
+DS2022-Final-Project/
+├── src/                    # Application / library code
+│   ├── app.py              # Main Flask API
+│   ├── data_processing.py  # Pandas CSV utilities
+│   └── __init__.py
+├── assets/                 # Diagrams, screenshots, images
+│   ├── architecture.png
+│   └── screenshots/
+│       └── sample_response.png
+├── tests/                  # Smoke/unit tests
+│   └── smoke_test.sh
+├── Spotify-2000.csv        # Dataset (seed/test data)
+├── Dockerfile              # Docker container instructions
+├── requirements.txt        # Python dependencies
+├── .env.example            # Example environment variables (no secrets)
+├── run.sh                  # Optional one-line launcher
+├── README.md               # Project write-up
+└── LICENSE                 # MIT license for code
+
+
 **Data/Models/Services:**  
 | Component | Source | Size | Format | License |
 |-----------|--------|------|--------|---------|
