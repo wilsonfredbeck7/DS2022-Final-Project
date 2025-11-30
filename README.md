@@ -20,7 +20,9 @@ This project provides a **Flask-based API** that exposes endpoints to query, fil
 Include PNG diagram in `/assets` and embed here:  
 ![Architecture Diagram](./assets/Final-Project-Diagram.png)
 
-**Folder tree**
+**Project Structure**
+
+```text
 DS2022-Final-Project/
 ├── src/                    # Application / library code
 │   ├── app.py              # Main Flask API
@@ -39,6 +41,7 @@ DS2022-Final-Project/
 ├── run.sh                  # Optional one-line launcher
 ├── README.md               # Project write-up
 └── LICENSE                 # MIT license for code
+```
 
 
 **Data/Models/Services:**  
