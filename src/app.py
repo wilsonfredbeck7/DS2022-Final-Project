@@ -10,6 +10,7 @@ CSV_PATH = os.path.join(BASE_DIR, "../assets/Spotify-2000.csv")
 DF = pd.read_csv(CSV_PATH)
 
 
+@app.get("/")
 @app.get("/api/")
 def home():
     return jsonify({
@@ -72,6 +73,12 @@ def search():
 
     return jsonify(results.head(50).to_dict(orient="records"))
 
+
+
+# ... (existing imports)
+
+
+# ... (existing imports)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8080, debug=True)
