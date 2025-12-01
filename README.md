@@ -51,7 +51,7 @@ DS2022-Final-Project/
 
 ---
 
-## 3) How to Run (Local)
+## 3) How to Run (Docker)
 
 ### Docker
 
@@ -61,47 +61,34 @@ docker build -t spotify-api:latest .
 ```
 ```bash
 # Run container
-docker run --rm -p 5000:5000 --env-file .env.example spotify-api:latest
+docker run --rm -p 8080:8080 --env-file .env.example spotify-api:latest
 ```
 ```bash
 # Test API health
-curl http://localhost:5000/health
+curl http://127.0.0.1:8080/api/health
 ```
-
-## 4) How to Run (Local / Docker)
-
-Build Docker image:  
-```bash
-docker build -t spotify-api:latest .
-```
-
-Run container:  
-```bash
-docker run --rm -p 5000:5000 --env-file .env.example spotify-api:latest
-```
-
 Test API endpoints:  
 
 Health check: 
 ```bash
-curl http://127.0.0.1:5000/api/health  
+curl http://127.0.0.1:8080/api/health 
 ```
 Top 10 energy tracks: 
 ```bash
-curl http://127.0.0.1:5000/api/tracks/top-energy?n=10  
+curl http://127.0.0.1:8080/api/tracks/top-energy?n=10 
 ```
 Search tracks by artist: 
 ```bash
-curl "http://127.0.0.1:5000/api/tracks/search?artist=Coldplay" 
+curl "http://127.0.0.1:8080/api/tracks/search?artist=Coldplay" 
 ```
 Search tracks by title: 
 ```bash
-curl "http://127.0.0.1:5000/api/tracks/search?title=Yellow"
+curl "http://127.0.0.1:8080/api/tracks/search?title=Yellow"
 ```
 
 ---
 
-## 5) Design Decisions
+## 4) Design Decisions
 
 Why Flask?  
 Flask is lightweight, flexible, and integrates seamlessly with pandas. Alternatives like FastAPI or Django were considered, but Flask provided simplicity and faster setup for this dataset.
@@ -123,7 +110,7 @@ Scaling to larger datasets would require database integration and caching.
 
 ---
 
-## 6) Results & Evaluation
+## 5) Results & Evaluation
 
 Sample Output: 
 ```text
@@ -139,7 +126,7 @@ Confirms correct JSON structure and response codes.
 
 
 
-## 7) What’s Next
+## 6) What’s Next
 
 Support larger datasets with a database backend (PostgreSQL/MongoDB).  
 Add authentication and user management for multi-user queries.  
@@ -148,7 +135,7 @@ Optional deployment to cloud with stable public URL.
 
 ---
 
-## 8) Links
+## 7) Links
 
 GitHub Repo: https://github.com/wilsonfredbeck7/DS2022-Final-Project  
 Public Cloud App (optional): <INSERT-CLOUD-URL>

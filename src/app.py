@@ -10,20 +10,26 @@ CSV_PATH = os.path.join(BASE_DIR, "../assets/Spotify-2000.csv")
 DF = pd.read_csv(CSV_PATH)
 
 
-@app.route("/")
+@app.get("/api/")
 def home():
     return jsonify({
-        "routes": ["/health", "/tracks", "/summary", "/top-energy", "/search"],
-        "note": "Use /tracks?limit=N to get the first N tracks, /search?q=name to search."
+        "routes": [
+            "/api/health",
+            "/api/tracks",
+            "/api/summary",
+            "/api/top-energy",
+            "/api/search"
+        ],
+        "note": "Use /api/tracks?limit=N to get the first N tracks, /api/search?q=name to search."
     })
 
 
-@app.get("/health")
+@app.get("/api/health")
 def health():
     return {"status": "ok"}, 200
 
 
-@app.get("/tracks")
+@app.get("/api/tracks")
 def tracks():
     """Return all tracks or first N using ?limit=."""
     limit = int(request.args.get("limit", 100))
@@ -31,7 +37,7 @@ def tracks():
     return jsonify(data)
 
 
-@app.get("/summary")
+@app.get("/api/summary")
 def summary():
     """Return summary stats for key columns."""
     try:
@@ -45,19 +51,19 @@ def summary():
         return {"error": f"Missing column in CSV: {e}"}, 500
 
 
-@app.get("/top-energy")
+@app.get("/api/top-energy")
 def top_energy():
     """Return top 20 highest-energy tracks."""
     top = DF.nlargest(20, "Energy")
     return jsonify(top.to_dict(orient="records"))
 
 
-@app.get("/search")
+@app.get("/api/search")
 def search():
     """Search by track or artist name."""
-    q = request.args.get("q", "").strip().lower()  
+    q = request.args.get("q", "").strip().lower()
     if not q:
-        return jsonify([])  
+        return jsonify([])
 
     results = DF[
         DF['Title'].str.lower().str.contains(q) |
@@ -65,7 +71,6 @@ def search():
     ]
 
     return jsonify(results.head(50).to_dict(orient="records"))
-
 
 
 if __name__ == "__main__":
