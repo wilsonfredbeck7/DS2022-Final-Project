@@ -58,29 +58,47 @@ DS2022-Final-Project/
 ```bash
 # Build Docker image
 docker build -t spotify-api:latest .
-
+```
+```bash
 # Run container
 docker run --rm -p 5000:5000 --env-file .env.example spotify-api:latest
-
+```
+```bash
 # Test API health
 curl http://localhost:5000/health
+```
 
 ## 4) How to Run (Local / Docker)
 
 Build Docker image:  
+```bash
 docker build -t spotify-api:latest .
+```
 
 Run container:  
+```bash
 docker run --rm -p 5000:5000 --env-file .env.example spotify-api:latest
+```
 
 Test API endpoints:  
-Health check: curl http://127.0.0.1:5000/api/health  
-Top 10 energy tracks: curl http://127.0.0.1:5000/api/tracks/top-energy?n=10  
-Search tracks by artist: curl "http://127.0.0.1:5000/api/tracks/search?artist=Coldplay"  
-Search tracks by title: curl "http://127.0.0.1:5000/api/tracks/search?title=Yellow"
 
-Optional: include a run.sh script for one-line build + run.
+Health check: 
+```bash
+curl http://127.0.0.1:5000/api/health  
 ```
+Top 10 energy tracks: 
+```bash
+curl http://127.0.0.1:5000/api/tracks/top-energy?n=10  
+```
+Search tracks by artist: 
+```bash
+curl "http://127.0.0.1:5000/api/tracks/search?artist=Coldplay" 
+```
+Search tracks by title: 
+```bash
+curl "http://127.0.0.1:5000/api/tracks/search?title=Yellow"
+```
+
 ---
 
 ## 5) Design Decisions
@@ -107,20 +125,19 @@ Scaling to larger datasets would require database integration and caching.
 
 ## 6) Results & Evaluation
 
-Sample Output:  
+Sample Output: 
+```text
 [
   {"title":"Song A","artist":"Artist X","energy":0.95,"danceability":0.80},  
   {"title":"Song B","artist":"Artist Y","energy":0.92,"danceability":0.75}  
 ]
+```
 
 Validation / Tests:  
 tests/smoke_test.sh contains simple curl-based tests for endpoints.  
 Confirms correct JSON structure and response codes.
 
-Screenshots:  
-![Sample API Response](./assets/screenshots/sample_response.png)
 
----
 
 ## 7) What’s Next
 
