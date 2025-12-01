@@ -30,8 +30,8 @@ curl -s "http://localhost:$PORT/api/tracks?limit=3"
 echo -e "\n== Single Track (id=10) =="
 curl -s "http://localhost:$PORT/api/tracks/10"
 
-echo -e "\n== Search (artist='Eminem') =="
-curl -s "http://localhost:$PORT/api/tracks/search?artist=eminem"
+echo -e "\n== Search (artist='Coldplay') =="
+curl -s "http://localhost:$PORT/api/tracks/search?artist=coldplay"
 
 echo -e "\n== Summary Stats =="
 curl -s http://localhost:$PORT/api/summary
