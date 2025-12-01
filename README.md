@@ -24,13 +24,13 @@ This project provides a **Flask-based API** that exposes endpoints to query, fil
 
 ```text
 DS2022-Final-Project/
-├── src/                    # Application / library code
-│   └── app.py              # Main Flask API
+├── src/                    # Application / library 
+│   ├── app.py              # Main Flask API
 ├── assets/                 # Diagrams, screenshots, images
-│   └── architecture.png
+│   ├── Final-Project-Diagram.png
+│   └── Spotify-2000.csv        # Dataset (seed/test data)
 ├── tests/                  # Smoke/unit tests
 │   └── smoke_test.sh
-├── Spotify-2000.csv        # Dataset (seed/test data)
 ├── Dockerfile              # Docker container instructions
 ├── requirements.txt        # Python dependencies
 ├── .env.example            # Example environment variables (no secrets)
