@@ -75,15 +75,15 @@ curl http://127.0.0.1:8080/api/health
 ```
 Top 10 energy tracks: 
 ```bash
-curl http://127.0.0.1:8080/api/tracks/top-energy?n=10 
+curl "http://127.0.0.1:8080/api/top-energy"
 ```
 Search tracks by artist: 
 ```bash
-curl "http://127.0.0.1:8080/api/tracks/search?artist=Coldplay" 
+curl "http://127.0.0.1:8080/api/search?q=coldplay"
 ```
 Search tracks by title: 
 ```bash
-curl "http://127.0.0.1:8080/api/tracks/search?title=Yellow"
+curl "http://127.0.0.1:8080/api/search?q=yellow"
 ```
 
 ---
