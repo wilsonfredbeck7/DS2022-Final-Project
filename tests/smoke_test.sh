@@ -27,11 +27,8 @@ curl -s http://localhost:$PORT/api/health
 echo -e "\n== Tracks (limit=3) =="
 curl -s "http://localhost:$PORT/api/tracks?limit=3"
 
-echo -e "\n== Single Track (id=10) =="
-curl -s "http://localhost:$PORT/api/tracks/10"
-
-echo -e "\n== Search (artist='Coldplay') =="
-curl -s "http://localhost:$PORT/api/tracks/search?artist=coldplay"
+echo -e "\n== Search (q='Coldplay') =="
+curl -s "http://localhost:$PORT/api/search?q=coldplay"
 
 echo -e "\n== Summary Stats =="
 curl -s http://localhost:$PORT/api/summary

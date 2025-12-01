@@ -134,37 +134,7 @@ Optional deployment to cloud with stable public URL.
 ## 7) Links
 
 GitHub Repo: https://github.com/wilsonfredbeck7/DS2022-Final-Project  
-Public Cloud App (optional): <INSERT-CLOUD-URL>
+Public Cloud App (optional): https://ds2022-final-project.proudmoss-faed8c29.westus3.azurecontainerapps.io
 
 License: MIT (see LICENSE file)  
 Dataset Attribution: Spotify Top 2000s Mega Dataset, [Kaggle](https://www.kaggle.com/datasets/iamsumat/spotify-top-2000s-mega-dataset)
-
-Sample Output:
-
-Top energy tracks example:
-
-json
-Copy code
-[
-  {"title":"Song A","artist":"Artist X","energy":0.95,"danceability":0.80},
-  {"title":"Song B","artist":"Artist Y","energy":0.92,"danceability":0.75}
-]
-Validation / Tests:
-
-tests/smoke_test.sh contains simple curl-based tests for endpoints.
-
-Confirms correct JSON structure and response codes.
-
-Screenshots:
-
-7) What’s Next
-Support larger datasets with a database backend (PostgreSQL/MongoDB).
-
-Add authentication and user management for multi-user queries.
-
-Include additional analytics endpoints (tempo distribution, key statistics).
-
-Optional deployment to cloud with stable public URL.
-
-8) Links
-GitHub Repo: https://github.com/wilsonfredbeck7/DS2022-Final-Project
