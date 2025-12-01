@@ -9,6 +9,8 @@ echo "== Building Docker image =="
 docker build -t $IMAGE_NAME .
 
 echo "== Starting container =="
+# Cleanup any existing container
+docker rm -f $CONTAINER_NAME 2>/dev/null || true
 docker run -d --rm -p $PORT:8080 --name $CONTAINER_NAME $IMAGE_NAME
 
 echo "Waiting 5 seconds for app to start..."
