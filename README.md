@@ -127,7 +127,7 @@ Confirms correct JSON structure and response codes.
 Support larger datasets with a database backend (PostgreSQL/MongoDB).  
 Add authentication and user management for multi-user queries.  
 Include additional analytics endpoints (tempo distribution, key statistics).  
-Optional deployment to cloud with stable public URL.
+
 
 ---
 
