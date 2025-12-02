@@ -129,8 +129,27 @@ Confirms correct JSON structure and response codes.
 
 ## 6) What’s Next
 
-In the future I can support larger datasets with a database backend (PostgreSQL/MongoDB). Add authentication and user management for multi-user queries.  
-Include additional analytics endpoints (tempo distribution, key statistics).  
+In future iterations, I can expand the API in several ways:
+
+### 1. Scale to Larger Datasets
+- Migrate from CSV to a database backend such as PostgreSQL or MongoDB.  
+- Add indexing to support faster search queries.  
+
+### 2. Add Authentication and User Management
+- Implement API key or JWT authentication.  
+- Role-based access (e.g., admin vs read-only users).  
+
+### 3. Enhanced Analytics Endpoints 
+- Advanced filtering (e.g., energy > 0.8 AND danceability > 0.7).  
+- Artist-level summaries (average tempo, tempo variance, etc.).
+
+### 4. Optional UI Layer
+- A lightweight React frontend to visualize results and analytics.  
+- Interactive plots for tempo, energy, key distribution, etc.
+
+### 5. Deployment & Ops Improvements
+- Enable horizontal scaling via Azure Container Apps revisions.  
+- Expand CI/CD to include automated deployment in addition to testing.
 
 
 ---
