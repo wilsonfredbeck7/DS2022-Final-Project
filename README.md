@@ -1,4 +1,5 @@
 # Spotify 2000s Track Explorer API
+A containerized Flask API that lets users explore and analyze 2000s Spotify track data using simple HTTP endpoints
 
 ## 1) Executive Summary
 
