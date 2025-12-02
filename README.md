@@ -119,6 +119,7 @@ Sample Output:
 Validation / Tests:  
 tests/smoke_test.sh contains simple curl-based tests for endpoints.  
 Confirms correct JSON structure and response codes.
+**CI/CD Pipeline**: GitHub Actions workflow (`.github/workflows/ci.yml`) automatically builds the Docker image and runs smoke tests on every push to `main`.
 
 
 
