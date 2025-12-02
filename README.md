@@ -24,6 +24,9 @@ This project provides a **Flask-based API** that exposes endpoints to query, fil
 
 ```text
 DS2022-Final-Project/
+├── .github/                # CI/CD workflows
+│   └── workflows/
+│       └── ci.yml
 ├── src/                    # Application / library 
 │   ├── app.py              # Main Flask API
 ├── assets/                 # Diagrams, screenshots, images
@@ -125,8 +128,7 @@ Confirms correct JSON structure and response codes.
 
 ## 6) What’s Next
 
-Support larger datasets with a database backend (PostgreSQL/MongoDB).  
-Add authentication and user management for multi-user queries.  
+In the future I can support larger datasets with a database backend (PostgreSQL/MongoDB). Add authentication and user management for multi-user queries.  
 Include additional analytics endpoints (tempo distribution, key statistics).  
 
 
